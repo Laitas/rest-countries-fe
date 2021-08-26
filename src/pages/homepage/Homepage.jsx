@@ -24,17 +24,28 @@ const Homepage = () => {
         console.log(data);
         setCountries(data)
     }
+    const fetchByRegion = async () =>{
+        const fetchData = await fetch(
+          `https://restcountries.eu/rest/v2/region/${region}`
+        );
+        const data = await fetchData.json();
+        console.log(data);
+        setCountries(data);
+    }
     useEffect(() => {
         fetchAll()
     },[])
     useEffect(()=>{
         fetchByName()
     },[nameCountry])
+    useEffect(()=>{
+        fetchByRegion()
+    },[region])
     return (
         <>
         <section className="filters">
         <SearchInput setNameCountry={setNameCountry} nameCountry={nameCountry}/>
-        <FilterInput/>
+        <FilterInput region={region} setRegion={setRegion}/>
         </section>
         <section className="countries">
             {countries.length > 0 &&

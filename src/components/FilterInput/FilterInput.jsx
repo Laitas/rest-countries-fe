@@ -1,9 +1,9 @@
 import React from 'react'
 import './FilterInput.scss'
-const FilterInput = () => {
+const FilterInput = ({region,setRegion}) => {
     return (
       <div className="filter-input">
-        <select name="" id="">
+        <select value={region} onChange={e=>setRegion(e.target.value)}>
             <option value=""selected disabled className='disabled'>Filter by Region</option>
             <option value="africa">Africa</option>
             <option value="america">America</option>
