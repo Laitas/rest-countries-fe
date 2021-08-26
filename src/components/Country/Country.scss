@@ -1,10 +1,14 @@
 .country-wrapper{
     border-radius: 6px;
     overflow: hidden;
+    max-width: 35rem;
     margin: 1rem;
     .country-flag{
         img{
+            object-position: center;
+            object-fit: cover;
             max-width: 300px;
+            height: 200px;
         }
     }
     .country-info{

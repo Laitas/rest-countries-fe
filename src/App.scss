@@ -19,6 +19,11 @@ body{
   color: $dark-blue-light-text;
   font-family: 'Nunito Sans', sans-serif;
   background-color: $light-gray-bg;
+  max-width: 1440px;
+  margin: 0 auto;
+  .icon{
+    color: $dark-gray-light-input;
+  }
 }
 nav{
   background-color: $white;
