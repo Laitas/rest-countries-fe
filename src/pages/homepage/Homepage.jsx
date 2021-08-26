@@ -16,17 +16,29 @@ const Homepage = () => {
         }
         setCountries(displayData)
     }
+    const fetchByName = async () =>{
+        const fetchData = await fetch(
+          `https://restcountries.eu/rest/v2/name/${nameCountry}`
+        );
+        const data = await fetchData.json()
+        console.log(data);
+        setCountries(data)
+    }
     useEffect(() => {
         fetchAll()
     },[])
+    useEffect(()=>{
+        fetchByName()
+    },[nameCountry])
     return (
         <>
         <section className="filters">
-        <SearchInput/>
+        <SearchInput setNameCountry={setNameCountry} nameCountry={nameCountry}/>
         <FilterInput/>
         </section>
         <section className="countries">
-            {countries.map(({id,...otherProps})=>(
+            {countries.length > 0 &&
+            countries.map(({id,...otherProps})=>(
                 <Country key={id} {...otherProps}/>
                 ))}
         </section>
