@@ -1,0 +1,19 @@
+.country-wrapper{
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 1rem;
+    .country-flag{
+        img{
+            max-width: 300px;
+        }
+    }
+    .country-info{
+        padding: 2rem;
+        li{
+            margin: 0.5rem 0;
+        }
+        span{
+            font-weight: 800;
+        }
+    }
+}
