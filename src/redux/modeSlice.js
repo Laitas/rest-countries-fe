@@ -8,9 +8,8 @@ const modeSlice = createSlice({
     name: 'mode',
     initialState,
     reducers: {
-        toggleMode: state =>{
-            state => { state.lightMode = !state.lightMode}
-        }
+        toggleMode: state => { state.lightMode = !state.lightMode}
+
     }
 });
 

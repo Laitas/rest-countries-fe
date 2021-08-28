@@ -1,8 +1,19 @@
 import React from 'react'
 import './Country.scss'
-const Country = ({capital,name,region,population,flag}) => {
+import { setCountry } from '../../redux/countrySlice'
+import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router'
+const Country = ({alpha3Code,capital,name,region,population,flag}) => {
+    const history = useHistory()
+    const dispatch = useDispatch()
+    const routeChange= () =>{
+        console.log(alpha3Code);
+        dispatch(setCountry({alpha3Code}))
+        console.log(dispatch(setCountry({ alpha3Code })));
+        history.push(`/country/${alpha3Code}`)
+    }
     return (
-        <div className='country-wrapper'>
+        <div className='country-wrapper' onClick={routeChange}>
             <div className="country-flag">
                 <img src={flag} alt={name} />
             </div>

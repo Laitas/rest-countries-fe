@@ -1,7 +1,9 @@
-import {ConfigureStore} from '@reduxjs/toolkit';
+import {configureStore} from '@reduxjs/toolkit';
 import modeSlice from './modeSlice';
-export const store = ConfigureStore({
-    reducers:{
-        mode: modeSlice
+import countrySlice from './countrySlice';
+export const store = configureStore({
+    reducer:{
+        mode: modeSlice,
+        country: countrySlice,
     }
 })
