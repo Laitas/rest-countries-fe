@@ -1,8 +1,12 @@
 
 .country-page{
     display: flex;
+    flex-direction: column;
     width: 90%;
     margin: 0 auto;
+    .button{
+        margin: 5rem 0;
+    }
     .place{
         display: flex;
         flex-wrap: wrap;
@@ -12,14 +16,12 @@
     }
     .info{
         padding: 4rem 1rem 4rem 0rem;
-        // @media (max-width:1126px) {
-        //     padding: 2rem 0rem;
-        // }
     }
     .main-info{
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: space-between;
         @media (max-width:1230px) {
             flex-direction: column;
 

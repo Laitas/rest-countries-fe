@@ -3,6 +3,7 @@ import {useSelector} from 'react-redux'
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import { setCountry } from '../../redux/countrySlice';
+import BackButton from '../../components/BackButton/BackButton';
 import './Countrypage.scss'
 
 const Countrypage = () => {
@@ -54,6 +55,9 @@ const Countrypage = () => {
         }else{          
         return (
           <div className="country-page">
+              <div className="button">
+              <BackButton/>
+              </div>
             <div className="place">
               <div className="flag">
                 <img src={flag} alt={name} />
