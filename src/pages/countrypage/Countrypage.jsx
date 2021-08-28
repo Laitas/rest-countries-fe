@@ -1,11 +1,17 @@
 import React,{useState,useEffect} from 'react'
 import {useSelector} from 'react-redux'
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router";
+import { setCountry } from '../../redux/countrySlice';
 import './Countrypage.scss'
 
 const Countrypage = () => {
     const [loading,setLoading] = useState(true)
     const [place,setPlace] = useState([])
+    const [routeChangeState,setRouteChangeState] = useState(false)
     const country = useSelector(state => state.country.alpha3Code)
+    const dispatch = useDispatch()
+    const history = useHistory()
     const fetchCountry = async () =>{
         try {
             const fetchData = await fetch(
@@ -19,19 +25,33 @@ const Countrypage = () => {
         }
         
     }
+    const {
+      name,
+      nativeName,
+      flag,
+      population,
+      region,
+      subregion,
+      capital,
+      topLevelDomain,
+      currencies,
+      languages,
+      borders,
+    } = place;
+    const routeChange = (border) => {
+      console.log(border);
+      dispatch(setCountry(border));
+      console.log(dispatch(setCountry(border)));
+      history.push(`/country/${border}`);
+      setRouteChangeState(true)
+    };
     useEffect(()=>{
         fetchCountry()
-    },[])
-    if(loading){
-        return <h1>Loading...</h1>
-    }else{
-        
-        const { name,nativeName,flag,population,region,subregion,capital,topLevelDomain,currencies,languages,borders } = place;
-        console.log(currencies);
-        console.log(currencies.length);
-
-        console.log(borders);
-        console.log(languages);
+        setRouteChangeState(false)
+        },[routeChangeState])
+        if(loading){
+            return <h1>Loading...</h1>
+        }else{          
         return (
           <div className="country-page">
             <div className="place">
@@ -89,7 +109,7 @@ const Countrypage = () => {
                 <div className="borders-info">
                   <span>Border Countries:</span>
                   {borders.map((border) => {
-                    return <span className="border">{border}</span>;
+                    return <span className="border" onClick={()=>routeChange(border)}>{border}</span>;
                   })}
                 </div>
               </div>

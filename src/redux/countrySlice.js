@@ -9,7 +9,7 @@ const countrySlice = createSlice({
     initialState,
     reducers: {
         setCountry: (state,action) =>{
-            state.alpha3Code = action.payload.alpha3Code
+            state.alpha3Code = action.payload
         }
     }
 });

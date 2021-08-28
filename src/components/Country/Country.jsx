@@ -8,8 +8,8 @@ const Country = ({alpha3Code,capital,name,region,population,flag}) => {
     const dispatch = useDispatch()
     const routeChange= () =>{
         console.log(alpha3Code);
-        dispatch(setCountry({alpha3Code}))
-        console.log(dispatch(setCountry({ alpha3Code })));
+        dispatch(setCountry(alpha3Code))
+        console.log(dispatch(setCountry(alpha3Code)));
         history.push(`/country/${alpha3Code}`)
     }
     return (
