@@ -9,7 +9,6 @@ const Nav = () => {
     const dispatch = useDispatch()
     
     const toggle = () =>{
-        console.log(mode);
         dispatch(toggleMode())
     }
     return (
