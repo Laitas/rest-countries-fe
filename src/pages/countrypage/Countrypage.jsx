@@ -51,7 +51,7 @@ const Countrypage = () => {
         setRouteChangeState(false)
         },[routeChangeState])
         if(loading){
-            return <h1>Loading...</h1>
+            return <div className="loading"><h1>Loading...</h1></div>
         }else{          
         return (
           <div className="country-page">

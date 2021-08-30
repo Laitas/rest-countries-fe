@@ -25,6 +25,25 @@ body{
     color: $dark-gray-light-input;
   }
 }
+.app{
+    transition: all .4s ease;
+}
+.dark-theme{
+    color: $white;
+    background-color:$dark-blue-bg;
+    transition: all .4s ease;
+    input,select{
+    transition: all .4s ease;
+      background-color:$dark-blue-bg;
+      &::placeholder,option{
+        color: $white;
+      }
+    }
+    .icon{
+      color: $white;
+    }
+}
+
 nav{
   background-color: $white;
 }
