@@ -42,7 +42,7 @@ const Homepage = () => {
         fetchByRegion()
     },[region])
     return (
-        <>
+        <div className='homepage'>
         <section className="filters">
         <SearchInput setNameCountry={setNameCountry} nameCountry={nameCountry}/>
         <FilterInput region={region} setRegion={setRegion}/>
@@ -53,7 +53,7 @@ const Homepage = () => {
                 <Country key={id} {...otherProps}/>
                 ))}
         </section>
-                </>
+        </div>
     )
 }
 

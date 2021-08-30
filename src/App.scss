@@ -19,10 +19,12 @@ body{
   color: $dark-blue-light-text;
   font-family: 'Nunito Sans', sans-serif;
   background-color: $light-gray-bg;
-  max-width: 1440px;
   margin: 0 auto;
   .icon,select{
     color: $dark-gray-light-input;
+  }
+  a{
+    color: $dark-blue-light-text;
   }
 }
 .app{
@@ -39,11 +41,14 @@ body{
         color: $white;
       }
     }
-    .icon{
+    .icon,a{
       color: $white;
     }
 }
-
+.homepage,.country-page{
+  max-width: 1440px;
+  margin: 0 auto;
+}
 nav{
   background-color: $white;
 }
