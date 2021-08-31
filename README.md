@@ -14,4 +14,5 @@ This was first project I have ever done that wasn't followed by a tutorial, it t
 - How to use Redux-toolkit
 - What is state persistence
 - useHistory
+- useParams
 - Theme toggling
