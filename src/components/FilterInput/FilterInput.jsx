@@ -8,7 +8,7 @@ const FilterInput = ({setRegion}) => {
   }
     return (
       <div className="filter-input">
-        <span className="filter-input--title" onClick={() => setDropdown(!dropdown)}>Filter by region <AiOutlineArrowDown className='icon'/></span>
+        <span className="filter-input--title" onClick={() => setDropdown(!dropdown)}>Filter by region <AiOutlineArrowDown className={dropdown?'icon active' : 'icon false'}/></span>
         <div
           className={
             dropdown ? "filter-input--dropdown-true" : "filter-input--dropdown-false"

@@ -18,6 +18,13 @@
         .icon{
             margin-left: 1rem;
         }
+        .active{
+            transition: all .3s ease;
+            transform: rotate(180deg);
+        }
+        .false{
+        transition: all .3s ease;
+        }
     }
     .option{
         cursor: pointer;
