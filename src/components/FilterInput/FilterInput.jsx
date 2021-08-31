@@ -1,10 +1,15 @@
 import React from 'react'
 import './FilterInput.scss'
 import { AiOutlineArrowDown } from 'react-icons/ai'
-const FilterInput = ({setRegion}) => {
+const FilterInput = ({setCountries,setRegion}) => {
   const [dropdown,setDropdown] = React.useState(false);
+  const fetchAll = async () => {
+    const fetchData = await fetch("https://restcountries.eu/rest/v2/all");
+    const data = await fetchData.json();
+    setCountries(data);
+  };
   const regionChange = (e) =>{
-  setRegion(e.target.innerText)    
+  setRegion(e.target.innerText)
   }
     return (
       <div className="filter-input">
@@ -14,7 +19,7 @@ const FilterInput = ({setRegion}) => {
             dropdown ? "filter-input--dropdown-true" : "filter-input--dropdown-false"
           }
         >
-          <span onClick={regionChange} className="option">All</span>
+          <span onClick={fetchAll} className="option">All</span>
           <span onClick={regionChange} className="option">Africa</span>
           <span onClick={regionChange} className="option">Americas</span>
           <span onClick={regionChange} className="option">Asia</span>

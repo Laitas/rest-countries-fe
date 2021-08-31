@@ -45,7 +45,7 @@ const Homepage = () => {
         <div className='homepage'>
         <section className="filters">
         <SearchInput setNameCountry={setNameCountry} nameCountry={nameCountry}/>
-        <FilterInput region={region} setRegion={setRegion}/>
+        <FilterInput setCountries={setCountries} setRegion={setRegion}/>
         </section>
         <section className="countries">
             {countries.length > 0 &&
