@@ -3,6 +3,7 @@ import {useSelector} from 'react-redux'
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import { setCountry } from '../../redux/countrySlice';
+import { useParams } from 'react-router';
 import BackButton from '../../components/BackButton/BackButton';
 import './Countrypage.scss'
 
@@ -10,13 +11,13 @@ const Countrypage = () => {
     const [loading,setLoading] = useState(true)
     const [place,setPlace] = useState([])
     const [routeChangeState,setRouteChangeState] = useState(false)
-    const country = useSelector(state => state.country.alpha3Code)
+    let slug = useParams()
     const dispatch = useDispatch()
     const history = useHistory()
     const fetchCountry = async () =>{
         try {
             const fetchData = await fetch(
-              `https://restcountries.eu/rest/v2/alpha/${country}`
+              `https://restcountries.eu/rest/v2/alpha/${slug.name}`
             );
             const data = await fetchData.json();
             setPlace(data)
@@ -40,16 +41,14 @@ const Countrypage = () => {
       borders,
     } = place;
     const routeChange = (border) => {
-      console.log(border);
       dispatch(setCountry(border));
-      console.log(dispatch(setCountry(border)));
       history.push(`/country/${border}`);
       setRouteChangeState(true)
     };
     useEffect(()=>{
         fetchCountry()
         setRouteChangeState(false)
-        },[routeChangeState])
+        },[routeChangeState,slug])
         if(loading){
             return <div className="loading"><h1>Loading...</h1></div>
         }else{          
