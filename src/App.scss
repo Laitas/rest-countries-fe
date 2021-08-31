@@ -44,6 +44,7 @@ body{
     input{
     transition: all .4s ease;
       background-color:$dark-blue;
+      color: $white;
       &::placeholder,option{
         color: $white;
       }
